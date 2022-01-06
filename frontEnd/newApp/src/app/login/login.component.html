@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="card  col-4 rounded">
+        <div class="card-header">
+            <h4>Login</h4>
+        </div>
+        <div class="card-body rounded p-2 bg-info">
+            <form (ngSubmit)="logUser()"  method="post" class="form-signin" #logForm="ngForm">
+                <div class="container">
+                    <p class="text-danger">{{err}}</p>
+                </div>
+                <div class="container p-2">
+                    <input class="form-control" [(ngModel)]="loginUser.email" type="text" name="email" id="email" #email="ngModel" placeholder="Email" required>
+                    <div class="text" *ngIf="email.invalid && (email.touched || email.dirty)">
+                        <p class="text-danger">Email required!</p>
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <input class="form-control" [(ngModel)]="loginUser.pw" type="text" name="pw" id="pw" #pw="ngModel" placeholder="Password" required>
+                    <div class="text" *ngIf="pw.invalid && (pw.touched || pw.dirty)">
+                        <p class="text-danger">Password required!</p>
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <button  class="btn btn-primary" [disabled]="!logForm.form.valid" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

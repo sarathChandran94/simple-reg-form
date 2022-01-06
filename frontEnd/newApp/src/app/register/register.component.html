@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="card rounded">
+        <div class="card-header">
+            <h4>Register</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card p-2 col-md-6 bg-info">
+            <form (ngSubmit)="regUser()" class="form-signin" #registerForm="ngForm">
+                <div class="container form-group p-2">
+                    <input class="form-control" required [(ngModel)]="registeredUser.username" type="text" name="username" id="username" #name="ngModel" placeholder="Name"  minlength="4" >
+                    <div *ngIf="name.invalid &&(name.dirty || name.touched)" class="text text-danger">
+                        Name required
+                    </div>
+
+                </div>
+                <div class="container p-2">
+                    <input class="form-control" required [(ngModel)]="registeredUser.email" type="text" name="email" id="email" #email="ngModel" placeholder="Email" >
+                    <div *ngIf="email.invalid &&(email.dirty || email.touched)" class="text text-danger">
+                        Email required
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <input class="form-control" required [(ngModel)]="registeredUser.pw" type="text" name="pw" id="pw" #pw="ngModel" placeholder="Password"  minlength="8" >
+                    <div *ngIf="pw.invalid &&(pw.dirty || pw.touched)" class="text text-danger">
+                        Password required
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <button [disabled]="!registerForm.form.valid" class="btn btn-primary" type="submit">Submit</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
