@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(["dash"])
             },
             err => {
-                this.err = err.error;
+                this.err = err.error.msg;
                 console.log(this.err)
             }
         )

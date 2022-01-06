@@ -38,15 +38,15 @@ app.post("/register", (req, res) => {
 
 app.post("/login", (req, res) => {
     let luser = req.body;
-    User.findOne({ email: luser.email },(err, user) => {
-        if (user) {
+    User.findOne({ email: luser.email }, (err, user) => {
+        if (luser.pw === user.pw) {
             res.status(200).send({user});
         }
         else if (!user) {
             res.status(401).send('User not Found!');
         }
         else {
-            res.send(err);
+            res.status(401).send({msg: 'pw incorrect'});
         }
     })
 })
